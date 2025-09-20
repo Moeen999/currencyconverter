@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none" role="img" aria-label="NeoConvert logo">
+  <defs>
+    <filter id="insetShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feOffset dx="0" dy="1" result="off"/>
+      <feGaussianBlur stdDeviation="1.2" result="blur"/>
+      <feComposite operator="out" in="SourceGraphic" in2="blur" result="comp"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0   0 0 0 0.6" result="alpha"/>
+      <feMerge>
+        <feMergeNode in="comp"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <linearGradient id="accent" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#00ffc6"/>
+      <stop offset="1" stop-color="#00bfa1"/>
+    </linearGradient>
+
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- background circle (transparent to match dark UI) -->
+  <circle cx="32" cy="32" r="30" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+
+  <!-- raised coin shape -->
+  <g filter="url(#insetShadow)">
+    <circle cx="32" cy="32" r="22" fill="#161616" stroke="rgba(0,0,0,0.35)" stroke-width="1.2"/>
+    <circle cx="32" cy="32" r="22" fill="transparent" stroke="url(#accent)" stroke-width="1" opacity="0.08"/>
+  </g>
+
+  <!-- currency symbols -->
+  <g transform="translate(0,0)" filter="url(#softGlow)" fill="#e6fdf5">
+    <text x="32" y="28" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-weight="700" font-size="16">₿</text>
+    <text x="22" y="38" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-weight="600" font-size="10">€</text>
+    <text x="42" y="38" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-weight="600" font-size="10">$</text>
+  </g>
+
+  <!-- subtle accent arc -->
+  <path d="M18 18 C26 10, 38 10, 46 18" stroke="url(#accent)" stroke-width="1.6" stroke-linecap="round" fill="none" opacity="0.18"/>
+
+  <!-- small inner highlight -->
+  <ellipse cx="26" cy="22" rx="6" ry="3" fill="rgba(255,255,255,0.03)"/>
+
+</svg>
