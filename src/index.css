@@ -1,0 +1,236 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #1b1b1b;
+  color: #e5e5e5;
+}
+
+.currencyConverter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.currencyDiv {
+  background: #1b1b1b;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 8px 8px 16px #0f0f0f,
+              -8px -8px 16px #252525;
+  width: 380px;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.currencyDiv:hover {
+  transform: translateY(-4px);
+  box-shadow: 6px 6px 12px #0f0f0f,
+              -6px -6px 12px #252525;
+}
+
+.currencyDiv h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #00ffc6;
+  margin-bottom: 1.8rem;
+  text-shadow: 0 0 4px #00ffc6;
+}
+
+.currencyDiv label {
+  display: block;
+  text-align: left;
+  font-size: 0.85rem;
+  color: #aaa;
+  margin-bottom: 0.4rem;
+}
+
+.currencyDiv input[type="number"] {
+  width: 100%;
+  padding: 0.7rem;
+  background-color: #1b1b1b;
+  border: none;
+  border-radius: 0.7rem;
+  color: #e5e5e5;
+  font-size: 1rem;
+  box-shadow: inset 3px 3px 6px #0f0f0f,
+              inset -3px -3px 6px #252525;
+  outline: none;
+  transition: box-shadow 0.2s ease;
+}
+.currencyDiv input[type="number"]:focus {
+  box-shadow: inset 2px 2px 5px #0f0f0f,
+              inset -2px -2px 5px #252525;
+}
+
+.currSelectors {
+  margin-top: 1.5rem;
+}
+
+.currSelectors div {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.currSelectors label {
+  flex-basis: 100%;
+  text-align: left;
+  margin-top: 0.5rem;
+  color: #999;
+  font-size: 0.8rem;
+}
+
+.currSelectors select {
+  flex: 1;
+  padding: 0.7rem;
+  background-color: #1b1b1b;
+  border: none;
+  border-radius: 0.7rem;
+  color: #e5e5e5;
+  font-size: 1rem;
+  outline: none;
+  box-shadow: inset 3px 3px 6px #0f0f0f,
+              inset -3px -3px 6px #252525;
+  transition: box-shadow 0.2s ease;
+}
+.currSelectors select:focus {
+  box-shadow: inset 2px 2px 5px #0f0f0f,
+              inset -2px -2px 5px #252525;
+}
+
+.currencyDiv button {
+  margin-top: 1.8rem;
+  width: 100%;
+  padding: 0.8rem;
+  background: #1b1b1b;
+  color: #00ffc6;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 0.7rem;
+  cursor: pointer;
+  box-shadow: 3px 3px 6px #0f0f0f,
+              -3px -3px 6px #252525;
+  transition: all 0.25s ease;
+}
+.currencyDiv button:hover {
+  box-shadow: inset 3px 3px 6px #0f0f0f,
+              inset -3px -3px 6px #252525;
+}
+
+.currencyConverter hr {
+  border: none;
+  border-top: 1px solid #333;
+  width: 60%;
+}
+
+.currencyConverter > div:last-child {
+  text-align: center;
+  background: #1b1b1b;
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 8px 8px 16px #0f0f0f,
+              -8px -8px 16px #252525;
+  width: 380px;
+  margin: 0 auto;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.currencyConverter > div:last-child h2 {
+  color: #00ffc6;
+  font-size: 1.4rem;
+  margin: 0;
+  text-shadow: 0 0 4px #00ffc6;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+.appFooter {
+  width: 100%;
+  text-align: center;
+  padding: 1.2rem 0;
+  background: #1b1b1b;
+  box-shadow: 0 -4px 8px #0f0f0f, 0 4px 8px #252525 inset;
+}
+
+.appFooter h3 {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #aaa;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 1024px) {
+  .currencyDiv,
+  .currencyConverter > div:last-child {
+    width: 70%;
+    padding: 1.8rem;
+  }
+  .currencyDiv h1 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .currencyConverter {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+  .currencyDiv,
+  .currencyConverter > div:last-child {
+    width: 90%;
+    padding: 1.5rem;
+  }
+  .currencyDiv h1 {
+    font-size: 1.4rem;
+  }
+  .currencyDiv button {
+    font-size: 0.95rem;
+    padding: 0.7rem;
+  }
+  .currSelectors select,
+  .currencyDiv input[type="number"] {
+    font-size: 0.95rem;
+    padding: 0.6rem;
+  }
+  .appFooter h3 {
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 480px) {
+  .currencyConverter {
+    padding: 1rem;
+    gap: 1rem;
+  }
+  .currencyDiv,
+  .currencyConverter > div:last-child {
+    width: 95%;
+    padding: 1rem;
+  }
+  .currencyDiv h1 {
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
+  }
+  .currSelectors div {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+  .currencyDiv button {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+  .appFooter h3 {
+    font-size: 0.75rem;
+    line-height: 1.4;
+    padding: 0 1rem;
+  }
+}
