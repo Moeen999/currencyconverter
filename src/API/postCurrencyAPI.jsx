@@ -5,5 +5,6 @@ const api = axios.create({
 });
 
 export const getcurrencyData = (fromCurrency, toCurrency, amount) => {
- return api.get(`/pair/${fromCurrency}/${toCurrency}/${amount}`);
+ const  res= api.get(`/pair/${fromCurrency}/${toCurrency}/${amount}`);
+ return res;
 };

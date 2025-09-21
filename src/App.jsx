@@ -1,15 +1,26 @@
 import { useState } from "react";
 import { getcurrencyData } from "./API/postCurrencyAPI";
 import Footer from "./Footer";
+import { useQuery } from "@tanstack/react-query";
 
 const App = () => {
+  // const [convertedAmount, setConvertedAmount] = useState(null);
+  // const [isLoading, setIsLoading] = useState(false);
   const [inputData, setInputdata] = useState({
     amount: 0,
     fromCurr: "USD",
     toCurr: "PKR",
   });
-  const [convertedAmount, setConvertedAmount] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const {
+    data: convertedAmount,
+    isLoading,
+    refetch,
+  } = useQuery({
+    queryKey: ["currency"],
+    queryFn: () =>
+      getcurrencyData(inputData.fromCurr, inputData.toCurr , inputData.amount),
+    enabled: false,
+  });
 
   const fromArr = [
     "USD",
@@ -69,18 +80,19 @@ const App = () => {
   ];
 
   const hanldeCurrencyConvert = async () => {
-    setIsLoading(true);
-    try {
-      const { data } = await getcurrencyData(
-        inputData.fromCurr,
-        inputData.toCurr,
-        inputData.amount
-      );
-      setConvertedAmount(data.conversion_result);
-      setIsLoading(false);
-    } catch (error) {
-      console.log(error);
-    }
+   if(inputData.amount > 0 ) refetch();
+    // setIsLoading(true);
+    // try {
+    //   const { data } = await getcurrencyData(
+    //     inputData.fromCurr,
+    //     inputData.toCurr,
+    //     inputData.amount
+    //   );
+    //   setConvertedAmount(data.conversion_result);
+      // setIsLoading(false);
+    // } catch (error) {
+    //   console.log(error);
+    // }
   };
 
   return (
@@ -147,7 +159,7 @@ const App = () => {
         <div>
           <h2>
             {inputData.amount} {inputData.fromCurr} ={" "}
-            {convertedAmount.toFixed(2)} {inputData.toCurr}
+            {convertedAmount.data.conversion_result.toFixed(2)} {inputData.toCurr}
           </h2>
         </div>
       )}
